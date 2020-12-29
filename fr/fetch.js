@@ -1,5 +1,6 @@
 class ffr{
     constructor(){
+        this.xhr = new XMLHttpRequest();
         return
     }
     open(URL, METHOD="GET"){
@@ -7,6 +8,7 @@ class ffr{
             this.is_open = true;
             this.method = METHOD;
             this.url = URL;
+            xhr.open(this.methos, this.url);
             this.response = {};
         }else{
             console.error("False Method");
@@ -15,12 +17,8 @@ class ffr{
 
     send(){
         if (this.is_open){
-            var tt = this;
-            fetch(this.url, {
-                method: this.method
-            })
-                .then(function (response){return response.json()})
-                .then(function (resp){tt.onload_(resp)});
+            this.xhr.onload = onload_(this.xhr.response);
+            this.xhr.send();
         }else{
             console.error("No Method and No URL");
         }
