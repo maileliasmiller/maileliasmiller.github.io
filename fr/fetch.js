@@ -17,7 +17,7 @@ class ffr{
 
     send(){
         if (this.is_open){
-            this.xhr.onload = onload_(this.xhr.response);
+            this.xhr.onload = this.onload_(this.xhr.response);
             this.xhr.send();
         }else{
             console.error("No Method and No URL");
