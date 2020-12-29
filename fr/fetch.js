@@ -17,15 +17,15 @@ class ffr{
 
     send(){
         if (this.is_open){
-            this.xhr.onload = this.onload_(this.xhr.response);
+            this.xhr.onload = this.onload_();
             this.xhr.send();
         }else{
             console.error("No Method and No URL");
         }
     }
 
-    onload_(resp){
-        this.response = resp;
+    onload_(){
+        this.response = this.xhr.response;
         this.onload();
     }
 
