@@ -8,7 +8,7 @@ class ffr{
             this.is_open = true;
             this.method = METHOD;
             this.url = URL;
-            xhr.open(this.methos, this.url);
+            this.xhr.open(this.methos, this.url);
             this.response = {};
         }else{
             console.error("False Method");
